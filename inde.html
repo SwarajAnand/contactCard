@@ -26,6 +26,7 @@
             max-width: 400px;
             width: 100%;
             margin-top: 10.5rem;
+            display: none;
         }
 
         h1 {
@@ -85,6 +86,7 @@
     </div>
 
     <script>
+        const container = document.querySelector('.container');
         const firstName = document.getElementById('firstName');
         const lastName = document.getElementById('lastName');
         const country = document.getElementById('country');
@@ -101,6 +103,8 @@
             let stateValue = prompt('Enter your state');
             let cityValue = prompt('Enter your city');
             let villageValue = prompt('Enter your village');
+
+            container.style.display = 'block';
 
             let obj = {
                 fName,
@@ -128,6 +132,7 @@
             let data = localStorage.getItem('info');
 
             if (data) {
+                container.style.display = 'block';
                 data = JSON.parse(data);
                 firstName.innerHTML = data.fName;
                 lastName.innerHTML = data.lName;
@@ -136,6 +141,7 @@
                 state.innerHTML = data.stateValue;
                 city.innerHTML = data.cityValue;
                 village.innerHTML = data.villageValue;
+
             } else {
                 updateData();
             }
